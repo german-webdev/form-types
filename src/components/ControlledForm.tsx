@@ -1,4 +1,4 @@
-import { FC, useRef, useState, ChangeEvent, FormEvent } from "react";
+import { FC, useState, ChangeEvent, FormEvent } from "react";
 
 interface FormData {
   name: string;
@@ -6,9 +6,6 @@ interface FormData {
 }
 
 export const ControlledForm: FC = () => {
-  const nameInput = useRef<HTMLInputElement>(null);
-  const passwordInput = useRef<HTMLInputElement>(null);
-
   const [formData, setFormData] = useState<FormData>({
     name: "",
     password: "",
@@ -26,8 +23,8 @@ export const ControlledForm: FC = () => {
     event.preventDefault();
 
     const data: FormData = {
-      name: nameInput.current?.value || "",
-      password: passwordInput.current?.value || "",
+      name: formData.name,
+      password: formData.password,
     };
 
     console.log(data);
@@ -40,7 +37,6 @@ export const ControlledForm: FC = () => {
         className="input"
         name="name"
         type="text"
-        ref={nameInput}
         value={formData.name}
         onChange={handleChange}
       />
@@ -50,12 +46,13 @@ export const ControlledForm: FC = () => {
         className="input"
         name="password"
         type="password"
-        ref={passwordInput}
         value={formData.password}
         onChange={handleChange}
       />
 
-      <button type="submit" className="button">Submit</button>
+      <button type="submit" className="button">
+        Submit
+      </button>
     </form>
   );
 };
