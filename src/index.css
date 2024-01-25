@@ -1,0 +1,16 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-wrapper {
+  width: 500px;
+  margin-inline: auto;
+}
+
+.button {
+  padding: 10px;
+  margin-inline: auto;
+  margin-top: 10px;
+}
